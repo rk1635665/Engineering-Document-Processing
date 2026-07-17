@@ -1,0 +1,17 @@
+# Optional — only needed to run the real extraction pipeline
+# (app/extraction_pipeline.py). The core API/UI works without these;
+# uploads just sit at status="failed" with a clear reviewer_comment
+# until this is installed and a document is re-uploaded.
+#
+#   pip install -r requirements-extraction.txt --break-system-packages
+#
+# Sized for the RTX 3050 4GB workflow (Florence-2-base, no bf16/flash-attn
+# required). PyMuPDF is only used to rasterize the first page of PDF
+# uploads before OCR.
+
+torch>=2.2
+transformers>=4.45
+einops
+timm
+pillow
+pymupdf
